@@ -258,7 +258,46 @@ h1 {
 .hero .main-cont .second p {
     color: white;
 }
-
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+    filter: grayscale(80%) brightness(90%);
+  }
+  
+  .image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(25deg);
+    transition: all 0.7s ease;
+    pointer-events: none;
+  }
+  
+  .image-wrapper:hover::before {
+    top: 100%;
+    left: 100%;
+  }
+  
+  .image-wrapper img:hover {
+    transform: scale(1.02) rotateZ(1deg);
+    filter: grayscale(0%) brightness(105%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+    
+  
+  
 /* ===== Improved Company Section ===== */
 .company .main-compny {
     display: flex;
@@ -294,6 +333,20 @@ h1 {
     height: auto;
 }
 
+.one img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    border-radius: 10px;
+    transform: scale(1); /* initial scale */
+    filter: brightness(95%);
+  }
+  
+  .one img:hover {
+    transform: translateY(-5px) scale(1.02); /* very slight zoom + upward lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    filter: brightness(105%);
+  }
+  
+  
 .about .main-about .two {
     margin: 4rem;
     display: flex;
@@ -397,12 +450,13 @@ h1 {
     letter-spacing: 1px;
     margin: 0;
     color: #391400;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .work .main-work .two p {
     font-size: 1.5rem;
     color: #391400;
+    padding-left: 30px;
 }
 
 .work .main-work .two .btns button {
@@ -527,6 +581,92 @@ h1 {
     /* margin: 0 auto; */
     /* width: 100%; */
   }
+
+  .twox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .cont {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 250px;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  
+  .cont img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    display: block;
+    border-radius: 15px;
+  }
+  
+  /* Button + Heading wrapper */
+  .cont .btn {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 2;
+    color: #fff;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+  .cont .btn button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 5px;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .cont .btn h1 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  /* Shine Overlay */
+  .cont::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: rotate(25deg);
+    transition: all 0.8s ease;
+    pointer-events: none;
+  }
+  
+  /* Hover Effects */
+  .cont:hover::before {
+    top: 100%;
+    left: 100%;
+  }
+  
+  .cont:hover img {
+    transform: scale(1.05) rotateZ(1.5deg);
+    filter: brightness(1.1);
+  }
+  
+  .cont:hover .btn {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
   .portfolio .twox .cont {
     position: relative;
     width: 100%;
@@ -709,6 +849,19 @@ h1 {
     margin: 0 auto;
     border-radius: 3%;
   }
+
+  .team-member img {
+    width: 100%;
+    border-radius: 5%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .team-member img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 132, 255, 0.25), 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
   
 
 .team-member h4 {
@@ -786,6 +939,8 @@ h1 {
     height: 400px;
     border: 1px solid #F3D1BF;
 }
+
+
 
 .pricing .main-price ul li .onex h6 {
     color: orangered;
@@ -937,10 +1092,11 @@ ul.twox li:nth-child(2) .btns button {
 }
 
 .formsec form .btns button {
-    background: orangered;
+    background: #f27560;
+    color: #fff;
     padding: 0.5rem 0.8rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 6px;
 }
 
 /* ===== Improved Footer ===== */
